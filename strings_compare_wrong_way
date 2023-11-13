@@ -3,7 +3,7 @@
 
 int main()
 {
-    char *i ;
+    char i[4] ;
     printf("i: ");
     scanf("%s5", i);
     char *j = "hi!";
