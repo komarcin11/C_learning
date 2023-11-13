@@ -17,3 +17,27 @@ int main()
         printf("Different\n");
     }
 }
+
+
+//That is the correct way to define the memory use by the string size
+#include <stdlib.h>
+int main()
+{
+    printf("Enter a string: ");
+    char *i = NULL;
+    size_t bufferSize = 0;
+    getline(&i, &bufferSize, stdin);
+    
+    char *j = "hi!";
+    
+    if (i == j)
+    {
+        printf("same\n");
+    }
+    else
+    {
+        printf("Different\n");
+    }
+    printf("%s\n", i);
+    //printf("%s\n", j);
+}
