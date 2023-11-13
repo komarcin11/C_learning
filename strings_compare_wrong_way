@@ -25,8 +25,8 @@ int main()
 {
     printf("Enter a string: ");
     char *i = NULL;
-    size_t bufferSize = 0;
-    getline(&i, &bufferSize, stdin);
+    size_t bufferSize = 0; // siez_t is a variable type, its a int. and in this line it is givene defultly = 0 
+    getline(&i, &bufferSize, stdin);// getline passes a value to location &i with size defined in &bufferSize with use od stdin which is the standart terminal input
     
     char *j = "hi!";
     
