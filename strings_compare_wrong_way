@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char *i ;
+    printf("i: ");
+    scanf("%s5", i);
+    char *j = "hi!";
+    
+    if (i == j)
+    {
+        printf("same\n");
+    }
+    else
+    {
+        printf("Different\n");
+    }
+}
