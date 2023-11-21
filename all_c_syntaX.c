@@ -1690,7 +1690,7 @@ int main(int argc, char *argv[]) // here we give command line arguments// remain
         n->next = NULL; // here we make sure that the pointer to the next node from the current one is not garbadge value so we assign it NULL bacouse we didnt assign it any value
 
         n->next = list; // the next should point to the begining of the list which will point to the next element and so we will append 
-        list=n; // so now we want the list to point to this node ?? ?????????????????
+        list=n; // here we assign the first element to the temp node structure // if that line of code would be before the prievus we would caused a memory leakby orthining the seconde and so one elem.
     }
 
     node *ptr = list;// declaring a tmp from nude struct pointer for displaying that points at the first element
