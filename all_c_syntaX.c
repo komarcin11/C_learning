@@ -725,6 +725,34 @@ int main(void)
 }
 
 
+//------- WORKING WITH FILES -----------------------
+//working with csv files
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+FILE *csv_file;
+
+int main(void)
+{
+    errno_t csvfile; // not quite know waht that syntax id for but you need a errno_t type of a variable to open a file
+    csvfile = fopen_s(&csv_file, "cvs_file.csv","a"); // opens the file 
+
+    char name[10];
+    printf("name up to 10 charracters: ");
+    fgets(name, sizeof(name), stdin);
+    name[strcspn(name, "\n")] = '\0';//strcspn() searches for a first ocurance of a char i string returns the index of it
+    //name[strcspn(name, "\n")] = '\0'; is to get rid of the \n that is automaticly in the string from the fgets()
+
+    char number[10];
+    printf("number up to 10 dig: ");
+    fgets(number, sizeof(number), stdin);
+
+    fprintf(csv_file, "%s,%s", name, number);
+
+    fclose(csv_file);
+}
+
 //------- POINTERS IN DATA STRUCTURE & RECURSION -----------------------
 //lined_list.c
 #include <stdio.h>
