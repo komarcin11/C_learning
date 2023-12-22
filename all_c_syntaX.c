@@ -8,7 +8,10 @@ int main(void)
 }
 
 
-// --------- thats a prefix for a comment-----------
+// --------- thats a syntax for a single line comment-----------
+/*
+and this is for multiple line comment
+*/
 #include <stdio.h> // that is a libary that needs to be added if you what its fukcionalytie stdio.h is a standart one that comes with C
 #include <cs50.c> // is a additional libary you need to config it // using file.c you compile staticly external lib 
 #include <cs50.h> // using file.h you compile dynamicly external lib // at that moment your not able to do so 
@@ -35,7 +38,7 @@ float f = 4.5// is a digit with a floting point, a period ex. 4.2 - 4beytes
 double d = 2000000// a float with double the storage capasity - 8beytes
 long l = 2.000000001 // a int with doble the storage casity - 8 beytes
 string  s = "hello" // is not a standart variable in C it comes with <cs50.h> lib or can come with other 
-const int j = 2  // const is a cosntante you declare a variable to be a constant that can not be change during the program operation
+const int j = 2  // const is a cosntante you declare a variable to be a constant that can not be change during the program operation// there fore you need to declare a value of a const variable
 
 
 // ------PRINTING---------
@@ -102,6 +105,7 @@ int main(void)
 
 
 //----------------CONDITIONALS -----------
+
 // exapmple bellow// if needed use || or operators or && and poerators to combine your conditions
 #include <stdio.h>
 #include <cs50.c>
@@ -123,6 +127,25 @@ int main(void)
     }
 }
 
+// switch not used  often
+// it will compare the 
+#include <stdio.h>
+int main(void)
+{
+    int i = 2;
+    switch(i)// it will compare the varaible in () with the valeuses in the cases
+    {
+        case 1: // if the values are the same tan it will execute the values after : if not it will skip but 
+            printf("i = one\n"); // if it will execute the case than he will execute until it "hits the break
+            break; // if the i value would be 1 and no break; here it would execute the case 1 and case 2 until hiting the break key ward
+        case 2:
+            printf("i = two\n");
+            break;
+        default:
+            printf("i is not two or one");
+    }
+    return 0;
+}
 
 //---------------LOOPS---------------------
 
