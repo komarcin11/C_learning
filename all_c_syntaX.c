@@ -130,6 +130,7 @@ string  s = "hello" // is not a standart variable in C it comes with <cs50.h> li
 const int j = 2  // const is a cosntante you declare a variable to be a constant that can not be change during the program operation// there fore you need to declare a value of a const variable
 // for clearance 1byte = 8bits, 1bit is a single 0 or 1 values, so with 8 bits you can count 0-255, with 4 bytes up to 4,294,967,296.
 
+
 // ------PRINTING---------
 #include <stdio.h>
 int main(void) // that the difference between python to do anything you need to put it into a function
