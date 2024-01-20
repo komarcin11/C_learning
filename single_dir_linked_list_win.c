@@ -24,7 +24,7 @@ int main(void){
             printf("quit ? 'q'\n");
             //input
             printf("insert here your anwser: ");
-            c = getchar();
+            while ((c = getchar()) == '\n'); // that will consume the new line character by looping over it
             if (c=='f'){
                 list = decide(c,list); // passing the imput to the function
                 continue;
@@ -45,7 +45,7 @@ int main(void){
             printf("quit ? 'q'\n");
             //input
             printf("insert here your anwser: ");
-            c = getchar();
+            while ((c = getchar()) == '\n');
             if (c=='f'||c=='a'){
                 list = decide(c,list);
                 continue;
@@ -53,9 +53,6 @@ int main(void){
             else if (c=='q'){
                 printf("Exiting programs\n");
                 break;
-            }
-            else{
-                continue;
             }
         }
     }
