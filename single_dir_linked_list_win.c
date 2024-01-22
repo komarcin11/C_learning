@@ -12,6 +12,8 @@ node* add_first(node* list);
 node* append(node* list);
 void free_memo(node* list);
 node* decide(char x, node* list);
+node* pop_first(node* list);
+node* pop_last(node* list);
 
 int main(void){
     node* list = NULL;
@@ -41,12 +43,12 @@ int main(void){
             printf("append to the list? 'a'\n");
             printf("add as first? 'f' \n");
             // printf("insert inside? 'i'\n");
-            // printf("delete an element? 'd'\n");
+            printf("delete an element? 'd'\n");
             printf("quit ? 'q'\n");
             //input
             printf("insert here your anwser: ");
             while ((c = getchar()) == '\n');
-            if (c=='f'||c=='a'){
+            if (c=='f'||c=='a'|| c=='d'){
                 list = decide(c,list);
                 continue;
             }
@@ -134,8 +136,55 @@ node* decide(char x, node* list){
         visualize(list);
         return list;
     }
+    else if(x=='d'){
+        printf("woud you like to delete the first 'f' or last element 'l': ");
+        char d;
+        while ((d = getchar()) == '\n');
+        if(d == 'f'){
+            list = pop_first(list);
+        }
+        else if(d == 'l'){
+            list = pop_last(list);
+        }
+        visualize(list);
+        return list;
+    }
     else{
         return list;
     }
     printf("\n-------------------------\n");
+}
+
+node* pop_first(node* list){
+    if(list->next != NULL){
+        node* tmp = list->next;
+        free(list);//?
+        list = tmp;
+    }
+    else if(list->next == NULL){
+        free(list);
+        list = NULL;
+    }
+    else{
+    }
+    return list;
+}
+
+node* pop_last(node* list){
+    if (list == NULL){
+        return list=NULL;
+    }
+    else if (list->next == NULL){
+        free(list);
+        return list=NULL;
+    }
+    node* last=list;
+    node* before_last = NULL;
+    while(last->next!=NULL){
+        before_last =last;
+        last = last->next;
+    }
+    before_last->next = NULL;
+    free(last);
+    return list;
 }
