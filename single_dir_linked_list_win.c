@@ -14,6 +14,7 @@ void free_memo(node* list);
 node* decide(char x, node* list);
 node* pop_first(node* list);
 node* pop_last(node* list);
+void save(node* list, char* file_name);
 
 int main(void){
     node* list = NULL;
@@ -42,7 +43,7 @@ int main(void){
         else if(list !=NULL){
             printf("append to the list? 'a'\n");
             printf("add as first? 'f' \n");
-            // printf("insert inside? 'i'\n");
+            printf("save to file? 's' \n");
             printf("delete an element? 'd'\n");
             printf("quit ? 'q'\n");
             //input
@@ -55,6 +56,14 @@ int main(void){
             else if (c=='q'){
                 printf("Exiting programs\n");
                 break;
+            }
+            else if (c=='s'){
+                int strlen = 50;
+                char file_name[strlen];
+                printf("Enter your list file name(up to %d char): ",strlen);
+                scanf_s("%s",file_name,sizeof(file_name));
+                save(list, file_name);
+                continue;
             }
         }
     }
@@ -187,4 +196,24 @@ node* pop_last(node* list){
     before_last->next = NULL;
     free(last);
     return list;
+}
+
+void save(node* list, char* file_name){
+    if(list == NULL){
+        return;
+    }
+
+    FILE* file;
+    int a = fopen_s(&file, file_name, "w");
+    if (a!= 0 ||file == NULL){
+        printf("error creating file \n");
+        return;
+    }
+
+    while( list !=NULL){
+        fprintf(file, "%s\n", list->content);
+        list = list ->next;
+    }
+    fclose(file);
+    printf("saved to a file called: %s\n\n", file_name);
 }
