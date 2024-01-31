@@ -63,7 +63,7 @@ int main(void){
                 break;
             }
             else if (c=='s'){
-                string file_name = get_string("what file name: ");
+                string file_name = get_string("what file name (.db): ");
                 save(list, file_name);
                 continue;
             }
@@ -71,9 +71,7 @@ int main(void){
                 list = load(list);
                 continue;
             }
-            else{
-                continue;
-            }
+            
         }
     }
 
@@ -202,6 +200,9 @@ node* pop_last(node* list){
         return list=NULL;
     }
     else if (list->next == NULL){
+        if(list->source=='l'){
+            free(list->content);
+        }
         free(list);
         return list=NULL;
     }
